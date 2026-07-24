@@ -1,0 +1,29 @@
+// Simple client-side owner auth helpers.
+// NOTE: This is intentionally lightweight and runs entirely in the browser.
+// It is suitable for demos and local admin flows but NOT for production security.
+
+const OWNER_KEY = 'obolo-owner';
+const OWNER_PASSWORD = 'obolo-secret'; // replace during deployment with a safer flow
+
+export function isOwner() {
+    if (typeof window === 'undefined') return false;
+    return window.localStorage.getItem(OWNER_KEY) === 'true';
+}
+
+export function signIn(password) {
+if (password === OWNER_PASSWORD) {
+    if (typeof window !== 'undefined') {
+    window.localStorage.setItem(OWNER_KEY, 'true');
+    }
+    return true;
+    }
+  return false;
+}
+
+export function signOut() {
+  if (typeof window !== 'undefined') {
+    window.localStorage.removeItem(OWNER_KEY);
+  }
+}
+
+export default { isOwner, signIn, signOut };
