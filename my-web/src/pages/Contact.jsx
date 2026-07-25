@@ -56,11 +56,11 @@ export default function Contact() {
               </div>
               <div>
                 <p className="text-sm font-semibold uppercase tracking-[0.35em] text-slate-500">Phone</p>
-                <p className="mt-2 text-lg text-slate-900">+1 (800) 555-0199</p>
+                <p className="mt-2 text-lg text-slate-900">+233 208 9249 35</p>
               </div>
               <div>
                 <p className="text-sm font-semibold uppercase tracking-[0.35em] text-slate-500">Location</p>
-                <p className="mt-2 text-lg text-slate-900">Los Angeles, CA • Nationwide shipping available</p>
+                <p className="mt-2 text-lg text-slate-900">Ghana, GH • Nationwide shipping available</p>
               </div>
             </div>
 

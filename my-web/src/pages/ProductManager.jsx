@@ -10,6 +10,7 @@ import { getOwnerDashboardStats } from '../utils/dashboardUtils';
 
 const emptyForm = {
   name: '',
+  brand: '',
   category: '',
   price: '',
   image: '',
@@ -79,6 +80,7 @@ export default function ProductManager() {
     if (editingId) {
       updateProduct(editingId, {
         name: form.name,
+        brand: form.brand || 'Other',
         category: form.category,
         price: Number(form.price) || 0,
         image: form.image || '/images/placeholder.png',
@@ -94,6 +96,7 @@ export default function ProductManager() {
     } else {
       addProduct({
         name: form.name,
+        brand: form.brand || 'Other',
         category: form.category,
         price: Number(form.price) || 0,
         image: form.image || '/images/placeholder.png',
@@ -116,6 +119,7 @@ export default function ProductManager() {
     setEditingId(product.id);
     setForm({
       name: product.name,
+      brand: product.brand || '',
       category: product.category,
       price: String(product.price),
       image: product.image,

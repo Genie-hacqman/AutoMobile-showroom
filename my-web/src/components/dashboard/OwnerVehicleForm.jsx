@@ -35,6 +35,13 @@ export default function OwnerVehicleForm({
           className="rounded-2xl border border-slate-200 px-4 py-3 outline-none ring-0 focus:border-slate-400"
         />
         <input
+          name="brand"
+          value={form.brand}
+          onChange={onChange}
+          placeholder="Brand (e.g., Mercedes-Benz, BMW, Toyota)"
+          className="rounded-2xl border border-slate-200 px-4 py-3 outline-none ring-0 focus:border-slate-400"
+        />
+        <input
           name="category"
           value={form.category}
           onChange={onChange}

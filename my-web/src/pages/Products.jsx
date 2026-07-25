@@ -2,14 +2,17 @@
 import React, { useEffect, useMemo, useState } from "react";
 import { FaSearch } from "react-icons/fa";
 import { Link, useSearchParams } from "react-router-dom";
-import { getProducts, searchProducts } from "../data/productsStore";
+import { getProductBrand, getProducts, searchProducts } from "../data/productsStore";
+import { getBrandLogo } from "../data/brands";
 
 const products = getProducts();
 const categories = ["All", ...new Set(products.map((product) => product.category))];
+const brands = ["All", ...new Set(products.map((product) => getProductBrand(product)))];
 
 export default function Products() {
   const [searchParams, setSearchParams] = useSearchParams();
   const [category, setCategory] = React.useState("All");
+  const [brand, setBrand] = React.useState("All");
   const [sortOrder, setSortOrder] = React.useState("asc");
   const [draftQuery, setDraftQuery] = useState(searchParams.get("search") ?? "");
   const query = searchParams.get("search") ?? "";
@@ -38,11 +41,32 @@ export default function Products() {
   };
 
   const filteredProducts = useMemo(() => {
-    const base = category === "All" ? products : products.filter((product) => product.category === category);
-    const searchedProducts = searchProducts(base, query);
+    const byCategory = category === "All" ? products : products.filter((product) => product.category === category);
+    const byBrand = brand === "All" ? byCategory : byCategory.filter((product) => getProductBrand(product) === brand);
+    const searchedProducts = searchProducts(byBrand, query);
 
     return [...searchedProducts].sort((a, b) => (sortOrder === "asc" ? a.price - b.price : b.price - a.price));
-  }, [category, query, sortOrder]);
+  }, [brand, category, query, sortOrder]);
+
+  // Group products by brand
+  const groupedByBrand = useMemo(() => {
+    const groups = {};
+    filteredProducts.forEach((product) => {
+      const productBrand = getProductBrand(product);
+      if (!groups[productBrand]) {
+        groups[productBrand] = [];
+      }
+      groups[productBrand].push(product);
+    });
+    
+    // Sort brands alphabetically
+    const sortedBrands = Object.keys(groups).sort();
+    const sortedGroups = {};
+    sortedBrands.forEach((b) => {
+      sortedGroups[b] = groups[b];
+    });
+    return sortedGroups;
+  }, [filteredProducts]);
 
   return (
     <main className="bg-slate-50 min-h-screen py-16 text-slate-900">
@@ -94,6 +118,23 @@ export default function Products() {
               </div>
 
               <div className="rounded-full border border-slate-200 bg-white px-4 py-2 shadow-sm">
+                <label className="mr-3 text-sm text-slate-600">Brand</label>
+                <select
+                  id="product-brand"
+                  name="brand"
+                  value={brand}
+                  onChange={(event) => setBrand(event.target.value)}
+                  className="bg-transparent text-sm outline-none"
+                >
+                  {brands.map((group) => (
+                    <option key={group} value={group}>
+                      {group}
+                    </option>
+                  ))}
+                </select>
+              </div>
+
+              <div className="rounded-full border border-slate-200 bg-white px-4 py-2 shadow-sm">
                 <label className="mr-3 text-sm text-slate-600">Sort</label>
                 <select
                   id="product-sort"
@@ -124,33 +165,52 @@ export default function Products() {
             <p className="mt-3 text-slate-600">Try another search term or clear the filters.</p>
           </div>
         ) : (
-          <div className="grid gap-6 sm:grid-cols-2 xl:grid-cols-3">
-            {filteredProducts.map((product) => (
-              <article key={product.id} className="group overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-xl">
-                <img
-                  src={product.image}
-                  alt={product.name}
-                  className="h-72 w-full bg-slate-100 object-contain p-4 transition duration-300 group-hover:scale-105"
-                />
-                <div className="space-y-4 p-6">
-                  <div className="flex items-center justify-between gap-3">
-                    <p className="rounded-full bg-slate-100 px-3 py-1 text-xs uppercase tracking-[0.3em] text-slate-600">
-                      {product.category}
-                    </p>
-                    <span className="text-lg font-bold text-slate-900">${product.price.toLocaleString()}</span>
-                  </div>
+          <div className="space-y-12">
+            {Object.entries(groupedByBrand).map(([brandName, brandProducts]) => (
+              <div key={brandName} className="space-y-6">
+                <div className="border-b-2 border-yellow-400 pb-3 flex items-center gap-4">
+                  {getBrandLogo(brandName) && (
+                    <img 
+                      src={getBrandLogo(brandName)} 
+                      alt={`${brandName} logo`} 
+                      className="h-12 w-12 object-contain"
+                    />
+                  )}
                   <div>
-                    <h2 className="text-2xl font-semibold text-slate-900">{product.name}</h2>
-                    <p className="mt-3 text-sm leading-6 text-slate-600">{product.description}</p>
+                    <h2 className="text-3xl font-bold text-slate-900">{brandName}</h2>
+                    <p className="mt-1 text-sm text-slate-600">{brandProducts.length} vehicle{brandProducts.length === 1 ? "" : "s"}</p>
                   </div>
-                  <Link
-                    to={`/products/${product.id}`}
-                    className="inline-flex w-full items-center justify-center rounded-full bg-yellow-400 px-5 py-3 text-sm font-semibold text-slate-900 transition hover:bg-yellow-300"
-                  >
-                    View Details
-                  </Link>
                 </div>
-              </article>
+                <div className="grid gap-6 sm:grid-cols-2 xl:grid-cols-3">
+                  {brandProducts.map((product) => (
+                    <article key={product.id} className="group overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-xl">
+                      <img
+                        src={product.image}
+                        alt={product.name}
+                        className="h-72 w-full bg-slate-100 object-contain p-4 transition duration-300 group-hover:scale-105"
+                      />
+                      <div className="space-y-4 p-6">
+                        <div className="flex items-center justify-between gap-3">
+                          <p className="rounded-full bg-slate-100 px-3 py-1 text-xs uppercase tracking-[0.3em] text-slate-600">
+                            {product.category}
+                          </p>
+                          <span className="text-lg font-bold text-slate-900">${product.price.toLocaleString()}</span>
+                        </div>
+                        <div>
+                          <h2 className="text-2xl font-semibold text-slate-900">{product.name}</h2>
+                          <p className="mt-3 text-sm leading-6 text-slate-600">{product.description}</p>
+                        </div>
+                        <Link
+                          to={`/products/${product.id}`}
+                          className="inline-flex w-full items-center justify-center rounded-full bg-yellow-400 px-5 py-3 text-sm font-semibold text-slate-900 transition hover:bg-yellow-300"
+                        >
+                          View Details
+                        </Link>
+                      </div>
+                    </article>
+                  ))}
+                </div>
+              </div>
             ))}
           </div>
         )}

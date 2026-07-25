@@ -4,6 +4,7 @@ import { beforeEach, describe, expect, it } from 'vitest';
 import {
   addProduct,
   deleteProduct,
+  getProductBrand,
   getProducts,
   resetProducts,
   searchProducts,
@@ -63,5 +64,15 @@ describe('productsStore', () => {
 
     expect(results).toHaveLength(1);
     expect(results[0].name).toBe('2021 Mercedes-AMG GLE 53');
+  });
+
+  it('classifies vehicles by their make from the name', () => {
+    const bmw = getProductBrand({ name: 'BMW M3 G80' });
+    const toyota = getProductBrand({ name: 'Toyota Land Cruiser' });
+    const other = getProductBrand({ name: 'A unique custom coupe' });
+
+    expect(bmw).toBe('BMW');
+    expect(toyota).toBe('Toyota');
+    expect(other).toBe('Other');
   });
 });

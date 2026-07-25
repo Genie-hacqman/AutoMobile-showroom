@@ -125,3 +125,8 @@ export function deleteProduct(id) {
 export function getProductById(id) {
   return productState.find((product) => product.id === id) || null;
 }
+
+// Extract the brand from a product's brand property.
+export function getProductBrand(product) {
+  return product.brand || 'Other';
+}
