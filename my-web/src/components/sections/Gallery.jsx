@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 
 // This gallery showcases a few signature vehicles in a way that feels like flipping through a curated showroom wall.
+
 const galleryItems = [
   {
     title: "Precision Performance",
@@ -21,6 +22,8 @@ const galleryItems = [
 ];
 
 // This section gives visitors a polished snapshot of the collection and nudges them toward the full inventory.
+
+
 export default function Gallery() {
   return (
     <section className="bg-slate-950 py-16 text-white">

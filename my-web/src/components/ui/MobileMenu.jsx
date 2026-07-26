@@ -3,6 +3,8 @@ import { FaBars, FaShoppingCart, FaTimes } from "react-icons/fa";
 import NavLinks from "./NavLinks";
 
 // This mobile menu gives smaller screens a compact way to browse the site without crowding the layout.
+
+
 export default function MobileMenu({ searchTerm, setSearchTerm, onNavigateToProducts }) {
   const [menuOpen, setMenuOpen] = useState(false);
 
@@ -12,6 +14,8 @@ export default function MobileMenu({ searchTerm, setSearchTerm, onNavigateToProd
   return (
     <>
       {/* This button toggles the compact navigation panel on small screens. */}
+
+      
       <button
         type="button"
         onClick={toggleMobileMenu}
@@ -22,6 +26,8 @@ export default function MobileMenu({ searchTerm, setSearchTerm, onNavigateToProd
       </button>
 
       {/* The panel slides in and out with a gentle transition so it feels light and responsive. */}
+
+
       <div
         className={`overflow-hidden transition-all duration-300 ease-out ${
           menuOpen ? "max-h-155 opacity-100" : "max-h-0 opacity-0"

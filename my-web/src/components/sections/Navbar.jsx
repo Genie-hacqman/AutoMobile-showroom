@@ -18,6 +18,8 @@ function SearchField({ value, onValueChange }) {
 }
 
 // This navbar acts like the website’s friendly front desk, helping visitors move around and search for cars.
+
+
 export default function Navbar() {
   const location = useLocation();
   const navigate = useNavigate();
@@ -57,6 +59,8 @@ export default function Navbar() {
           </div>
 
           {/* Desktop nav links give the main route map for the showroom experience. */}
+
+
           <div className="hidden lg:flex lg:justify-center lg:gap-10">
             <NavLinks to="/landing" label="Marketplace" />
             <NavLinks to="/products" label="Inventory" />
@@ -65,6 +69,8 @@ export default function Navbar() {
           </div>
 
           {/* This section keeps the search box and action button visible for larger screens. */}
+
+
           <div className="hidden lg:flex lg:items-center lg:justify-end lg:gap-4">
             <form
               className="flex w-full max-w-xs items-center gap-2 rounded-full border border-slate-200 bg-slate-50 px-3 py-2 text-slate-700 shadow-sm sm:max-w-sm"
@@ -94,6 +100,8 @@ export default function Navbar() {
           </div>
 
           {/* The mobile menu component handles the smaller-screen navigation experience. */}
+
+          
           <MobileMenu
             pathname={location.pathname}
             searchTerm={searchTerm}

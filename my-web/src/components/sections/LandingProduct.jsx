@@ -1,5 +1,7 @@
 
 // Customer feedback cards shown on the landing page.
+
+
 const testimonials = [
   {
     id: "testimonial-1",
@@ -25,6 +27,8 @@ const testimonials = [
 ];
 
 // Main service highlights displayed beside the intro content.
+
+
 const productHighlights = [
   {
     id: "highlight-1",
@@ -46,7 +50,11 @@ const productHighlights = [
 export default function LandingProducts() {
   return (
     <section className="bg-white py-16 text-slate-900">
+
+
       {/* Main layout container for the landing product section */}
+
+
       <div className="mx-auto max-w-7xl px-5 sm:px-8 lg:px-16">
         <div className="grid gap-10 lg:grid-cols-[0.95fr_1.05fr] lg:items-start">
           <div className="space-y-6">
@@ -58,6 +66,8 @@ export default function LandingProducts() {
             </p>
 
             {/* Highlight cards for key selling points */}
+
+
             <div className="grid gap-4 sm:grid-cols-2">
               {productHighlights.map((item) => (
                 <div key={item.id} className="rounded-3xl border border-slate-200 bg-slate-50 p-5 shadow-sm">
@@ -71,6 +81,8 @@ export default function LandingProducts() {
 
           <div className="space-y-6">
             {/* Render each testimonial as a customer story card */}
+
+            
             {testimonials.map((testimonial, index) => (
               <div
                 key={testimonial.id}

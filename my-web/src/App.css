@@ -11,7 +11,8 @@
 
 .marquee-track {
   width: max-content;
-  animation: brand-marquee 20s linear infinite;
+  animation: brand-marquee 10s linear infinite;
+  will-change: transform;
 }
 
 .marquee-track:hover {

@@ -1,4 +1,6 @@
-// Brand metadata with logo paths
+// Brand metadata with logo paths used by the landing page and product listings.
+
+
 export const brandLogos = {
   'BMW': '/icons/%20BMW.png',
   'Changan': '/icons/changan.png',
@@ -10,6 +12,9 @@ export const brandLogos = {
   'Mercedes-Benz': '/icons/mercedes.png',
   'Toyota': '/icons/Toyota.png',
 };
+
+// Return the matching logo path for a brand, or null if no asset exists.
+
 
 export function getBrandLogo(brandName) {
   return brandLogos[brandName] || null;

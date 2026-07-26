@@ -8,11 +8,11 @@ import Footer from "../components/sections/Footer";
 export default function Landing() {
   return (
     <div>
-      <Hero/>
+      <Hero />
+      <LandingProducts />
       <BrandStrip />
-      <LandingProducts/>
-      <Gallary/>
-      <Footer/>
+      <Gallary />
+      <Footer />
     </div>
   );
 }

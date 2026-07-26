@@ -2,13 +2,19 @@ import { FaFacebookF, FaInstagram, FaLinkedinIn, FaTwitter } from "react-icons/f
 import { Link } from "react-router-dom";
 
 // This footer closes the experience with helpful links, social channels, and a polished brand signature.
+
+
 export default function Footer() {
   return (
     <footer className="bg-slate-950 text-slate-100">
       <div className="mx-auto flex max-w-7xl flex-col gap-10 px-5 py-12 sm:px-8 lg:px-16">
         <div className="grid gap-8 lg:grid-cols-[1.2fr_0.8fr] lg:items-start">
           <div className="space-y-3">
+
+
             {/* This intro helps visitors understand what the brand stands for. */}
+
+
             <h2 className="text-2xl font-bold">Obolo Motors</h2>
             <p className="max-w-xl text-sm leading-6 text-slate-400">
               Premium car sourcing and international delivery made simple. Connect with us on social media for updates, featured models, and exclusive offers.
@@ -18,6 +24,8 @@ export default function Footer() {
           <div className="grid gap-8 sm:grid-cols-2">
             <div>
               {/* Quick links keep key legal and contact pages easy to reach. */}
+
+
               <p className="text-sm uppercase tracking-[0.35em] text-slate-400">Quick links</p>
               <div className="mt-4 flex flex-col gap-3 text-sm text-slate-300">
                 <Link to="/privacy" className="transition hover:text-white">
@@ -34,6 +42,8 @@ export default function Footer() {
 
             <div>
               {/* Social links give visitors a few simple ways to keep in touch with the brand. */}
+
+
               <p className="text-sm uppercase tracking-[0.35em] text-slate-400">Follow us</p>
               <div className="mt-4 flex items-center gap-3">
                 <a
@@ -79,6 +89,8 @@ export default function Footer() {
       </div>
 
       {/* This bottom bar quietly closes the footer with a polished brand message and a helpful disclaimer. */}
+
+      
       <div className="border-t border-slate-800 px-5 py-6 text-center text-sm text-slate-500 sm:px-8 lg:px-16">
         <p>
           © {new Date().getFullYear()} Obolo Motors. All rights reserved. Crafted for global car buyers with transparency, trust, and premium delivery.
