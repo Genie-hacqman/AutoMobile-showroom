@@ -1,6 +1,6 @@
 // Brand metadata with logo paths
 export const brandLogos = {
-  'BMW': '/icons/ BMW.png',
+  'BMW': '/icons/%20BMW.png',
   'Changan': '/icons/changan.png',
   'Dodge': '/icons/dodge.png',
   'Ford': '/icons/ford.png',
