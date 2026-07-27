@@ -1,4 +1,6 @@
 // File: src/components/dashboard/OwnerDashboardHeader.jsx — Hero header used on the owner dashboard.
+
+
 export default function OwnerDashboardHeader({ title, subtitle, badge }) {
   return (
     <div className="rounded-4xl border border-slate-200 bg-linear-to-br from-slate-950 via-slate-900 to-slate-800 p-8 text-white shadow-2xl shadow-slate-900/10">
