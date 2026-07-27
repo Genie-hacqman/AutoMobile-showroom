@@ -5,19 +5,19 @@ import { Link } from "react-router-dom";
 const galleryItems = [
   {
     title: "Precision Performance",
-    image: "/images/BMW_M3_G80.png",
+    image: "https://ik.imagekit.io/genescreative/BMW_M3_G80.png",
   },
   {
     title: "Luxury Comfort",
-    image: "/images/2021_Mercedes-AMG_GLE_53.png",
+    image: "https://ik.imagekit.io/genescreative/2021_Mercedes-AMG_GLE_53.png",
   },
   {
     title: "Bold Styling",
-    image: "/images/LAMBORGHINI_URUS_PERFORMANTE_2024.png",
+    image: "https://ik.imagekit.io/genescreative/LAMBORGHINI_URUS_PERFORMANTE_2024.png",
   },
   {
     title: "Modern Heritage",
-    image: "/images/BMW_M4_2024.png",
+    image: "https://ik.imagekit.io/genescreative/BMW_M4_2024.png",
   },
 ];
 

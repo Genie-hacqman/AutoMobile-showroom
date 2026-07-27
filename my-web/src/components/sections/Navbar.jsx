@@ -53,7 +53,7 @@ export default function Navbar() {
               onClick={() => navigate("/")}
               className="flex items-center gap-3 text-left focus:outline-none"
             >
-              <img src="/images/logo image.png" alt="Obolo Motors logo" className="h-10 w-auto" />
+              <img src="https://ik.imagekit.io/genescreative/logo%20image.png" alt="Obolo Motors logo" className="h-10 w-auto" />
               <h1 className="text-2xl font-bold text-slate-900 sm:text-3xl">OBOLO MOTORS</h1>
             </button>
           </div>

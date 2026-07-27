@@ -5,9 +5,9 @@ import { useNavigate } from "react-router-dom";
 
 
 const videos = [
-  "/videos/vid1.mp4",
-  "/videos/vid2.mp4",
-  "/videos/vid3.mp4",
+  "https://ik.imagekit.io/genescreative/15530969_1080_1920_60fps.mp4",
+  "https://ik.imagekit.io/genescreative/15530945_1080_1920_60fps.mp4",
+  "https://ik.imagekit.io/genescreative/14228183-hd_1920_1080_60fps.mp4",
 ];
 
 // The hero section welcomes visitors with motion, bold copy, and clear calls to action.

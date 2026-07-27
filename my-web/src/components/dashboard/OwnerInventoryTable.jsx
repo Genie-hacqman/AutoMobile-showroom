@@ -13,29 +13,32 @@ export default function OwnerInventoryTable({ products, editingId, onEdit, onDel
           </div>
         ) : (
           products.map((product) => (
-            <div key={product.id} className="flex flex-col gap-4 px-5 py-4 md:flex-row md:items-center md:justify-between">
-              <div className="flex items-start gap-4">
-                <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-slate-100 text-sm font-semibold text-slate-700">
+            <div
+              key={product.id}
+              className="grid grid-cols-1 gap-4 px-5 py-4 items-center md:grid-cols-3 lg:grid-cols-4"
+            >
+              <div className="flex items-start gap-4 md:col-span-2 lg:col-span-3">
+                <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-slate-100 text-sm font-semibold text-slate-700">
                   {product.category?.slice(0, 2).toUpperCase() || 'VE'}
                 </div>
-                <div>
-                  <p className="font-semibold text-slate-900">{product.name}</p>
-                  <p className="mt-1 text-sm text-slate-600">{product.category} • ${Number(product.price || 0).toLocaleString()}</p>
+                <div className="min-w-0">
+                  <p className="font-semibold text-slate-900 truncate">{product.name}</p>
+                  <p className="mt-1 text-sm text-slate-600 truncate">{product.category} • ${Number(product.price || 0).toLocaleString()}</p>
                 </div>
               </div>
 
-              <div className="flex flex-wrap gap-2">
+              <div className="flex gap-2 md:justify-end md:col-span-1">
                 <button
                   type="button"
                   onClick={() => onEdit(product)}
-                  className="rounded-full border border-slate-300 px-4 py-2 text-sm font-semibold text-slate-700 transition hover:bg-slate-100"
+                  className="whitespace-nowrap rounded-full border border-slate-300 px-4 py-2 text-sm font-semibold text-slate-700 transition hover:bg-slate-100"
                 >
                   {editingId === product.id ? 'Editing' : 'Edit'}
                 </button>
                 <button
                   type="button"
                   onClick={() => onDelete(product.id)}
-                  className="rounded-full border border-rose-200 px-4 py-2 text-sm font-semibold text-rose-700 transition hover:bg-rose-50"
+                  className="whitespace-nowrap rounded-full border border-rose-200 px-4 py-2 text-sm font-semibold text-rose-700 transition hover:bg-rose-50"
                 >
                   Delete
                 </button>

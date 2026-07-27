@@ -58,94 +58,95 @@ export default function Products() {
       }
       groups[productBrand].push(product);
     });
-    
-    // Sort brands alphabetically
-    const sortedBrands = Object.keys(groups).sort();
-    const sortedGroups = {};
-    sortedBrands.forEach((b) => {
-      sortedGroups[b] = groups[b];
+
+    const sortedEntries = Object.entries(groups).sort((a, b) => {
+      const countDifference = b[1].length - a[1].length;
+      return countDifference !== 0 ? countDifference : a[0].localeCompare(b[0]);
     });
-    return sortedGroups;
+
+    return Object.fromEntries(sortedEntries);
   }, [filteredProducts]);
 
   return (
     <main className="bg-slate-50 min-h-screen py-16 text-slate-900">
       <div className="mx-auto max-w-7xl px-5 sm:px-8 lg:px-16">
-        <div className="mb-8 flex flex-col gap-6 xl:flex-row xl:items-end xl:justify-between">
-          <div>
-            <p className="text-sm uppercase tracking-[0.35em] text-yellow-500">Inventory</p>
-            <h1 className="mt-3 text-4xl font-bold sm:text-5xl">Browse Our Collection</h1>
-            <p className="mt-3 max-w-2xl text-base text-slate-600">
-              Find the perfect performance vehicle from our curated selection of premium cars.
-            </p>
-          </div>
+        <div className="mb-8 rounded-4xl border border-yellow-200 bg-linear-to-r from-slate-900 via-slate-800 to-slate-900 p-8 text-white shadow-[0_20px_60px_-20px_rgba(0,0,0,0.45)] xl:p-10">
+          <div className="flex flex-col gap-6 xl:flex-row xl:items-end xl:justify-between">
+            <div>
+              <p className="text-sm uppercase tracking-[0.35em] text-yellow-400">Inventory</p>
+              <h1 className="mt-3 text-4xl font-bold sm:text-5xl">Browse Our Collection</h1>
+              <p className="mt-3 max-w-2xl text-base text-slate-300">
+                Find the perfect performance vehicle from our curated selection of premium cars.
+              </p>
+            </div>
 
-          <div className="flex flex-col gap-4 sm:flex-row sm:items-center">
-            <form onSubmit={handleSearchSubmit} className="flex w-full max-w-md items-center rounded-full border border-slate-200 bg-white px-4 py-2 shadow-sm">
-              <input
-                id="product-search"
-                name="search"
-                type="search"
-                value={draftQuery}
-                onChange={handleSearchChange}
-                placeholder="Search inventory"
-                className="w-full bg-transparent text-sm outline-none placeholder:text-slate-400"
-              />
-              <button
-                type="submit"
-                aria-label="Search inventory"
-                className="ml-2 rounded-full p-2 text-slate-700 transition hover:bg-slate-100 hover:text-slate-900"
-              >
-                <FaSearch className="h-4 w-4" />
-              </button>
-            </form>
-            <div className="flex flex-wrap gap-3">
-              <div className="rounded-full border border-slate-200 bg-white px-4 py-2 shadow-sm">
-                <label className="mr-3 text-sm text-slate-600">Category</label>
-                <select
-                  id="product-category"
-                  name="category"
-                  value={category}
-                  onChange={(event) => setCategory(event.target.value)}
-                  className="bg-transparent text-sm outline-none"
+            <div className="flex flex-col gap-4 sm:flex-row sm:items-center">
+              <form onSubmit={handleSearchSubmit} className="flex w-full max-w-md items-center rounded-full border border-slate-200 bg-white px-4 py-2 shadow-sm">
+                <input
+                  id="product-search"
+                  name="search"
+                  type="search"
+                  value={draftQuery}
+                  onChange={handleSearchChange}
+                  placeholder="Search inventory"
+                  className="w-full bg-transparent text-sm outline-none placeholder:text-slate-400"
+                />
+                <button
+                  type="submit"
+                  aria-label="Search inventory"
+                  className="ml-2 rounded-full p-2 text-slate-700 transition hover:bg-slate-100 hover:text-slate-900"
                 >
-                  {categories.map((group) => (
-                    <option key={group} value={group}>
-                      {group}
-                    </option>
-                  ))}
-                </select>
-              </div>
+                  <FaSearch className="h-4 w-4" />
+                </button>
+              </form>
+              <div className="flex flex-wrap gap-3">
+                <div className="rounded-full border border-slate-200 bg-white px-4 py-2 shadow-sm text-slate-900">
+                  <label className="mr-3 text-sm text-slate-600">Category</label>
+                  <select
+                    id="product-category"
+                    name="category"
+                    value={category}
+                    onChange={(event) => setCategory(event.target.value)}
+                    className="bg-transparent text-sm outline-none"
+                  >
+                    {categories.map((group) => (
+                      <option key={group} value={group}>
+                        {group}
+                      </option>
+                    ))}
+                  </select>
+                </div>
 
-              <div className="rounded-full border border-slate-200 bg-white px-4 py-2 shadow-sm">
-                <label className="mr-3 text-sm text-slate-600">Brand</label>
-                <select
-                  id="product-brand"
-                  name="brand"
-                  value={brand}
-                  onChange={(event) => setBrand(event.target.value)}
-                  className="bg-transparent text-sm outline-none"
-                >
-                  {brands.map((group) => (
-                    <option key={group} value={group}>
-                      {group}
-                    </option>
-                  ))}
-                </select>
-              </div>
+                <div className="rounded-full border border-slate-200 bg-white px-4 py-2 shadow-sm text-slate-900">
+                  <label className="mr-3 text-sm text-slate-600">Brand</label>
+                  <select
+                    id="product-brand"
+                    name="brand"
+                    value={brand}
+                    onChange={(event) => setBrand(event.target.value)}
+                    className="bg-transparent text-sm outline-none"
+                  >
+                    {brands.map((group) => (
+                      <option key={group} value={group}>
+                        {group}
+                      </option>
+                    ))}
+                  </select>
+                </div>
 
-              <div className="rounded-full border border-slate-200 bg-white px-4 py-2 shadow-sm">
-                <label className="mr-3 text-sm text-slate-600">Sort</label>
-                <select
-                  id="product-sort"
-                  name="sort"
-                  value={sortOrder}
-                  onChange={(event) => setSortOrder(event.target.value)}
-                  className="bg-transparent text-sm outline-none"
-                >
-                  <option value="asc">Price: Low to High</option>
-                  <option value="desc">Price: High to Low</option>
-                </select>
+                <div className="rounded-full border border-slate-200 bg-white px-4 py-2 shadow-sm text-slate-900">
+                  <label className="mr-3 text-sm text-slate-600">Sort</label>
+                  <select
+                    id="product-sort"
+                    name="sort"
+                    value={sortOrder}
+                    onChange={(event) => setSortOrder(event.target.value)}
+                    className="bg-transparent text-sm outline-none"
+                  >
+                    <option value="asc">Price: Low to High</option>
+                    <option value="desc">Price: High to Low</option>
+                  </select>
+                </div>
               </div>
             </div>
           </div>
@@ -168,7 +169,7 @@ export default function Products() {
           <div className="space-y-12">
             {Object.entries(groupedByBrand).map(([brandName, brandProducts]) => (
               <div key={brandName} className="space-y-6">
-                <div className="border-b-2 border-yellow-400 pb-3 flex items-center gap-4">
+                <div className="flex items-center gap-4 border-b-2 border-yellow-400 pb-3">
                   {getBrandLogo(brandName) && (
                     <img 
                       src={getBrandLogo(brandName)} 
@@ -181,28 +182,30 @@ export default function Products() {
                     <p className="mt-1 text-sm text-slate-600">{brandProducts.length} vehicle{brandProducts.length === 1 ? "" : "s"}</p>
                   </div>
                 </div>
-                <div className="grid gap-6 sm:grid-cols-2 xl:grid-cols-3">
+                <div className="grid gap-5 sm:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4">
                   {brandProducts.map((product) => (
-                    <article key={product.id} className="group overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-xl">
-                      <img
-                        src={product.image}
-                        alt={product.name}
-                        className="h-72 w-full bg-slate-100 object-contain p-4 transition duration-300 group-hover:scale-105"
-                      />
-                      <div className="space-y-4 p-6">
-                        <div className="flex items-center justify-between gap-3">
-                          <p className="rounded-full bg-slate-100 px-3 py-1 text-xs uppercase tracking-[0.3em] text-slate-600">
+                    <article key={product.id} className="group overflow-hidden rounded-[1.75rem] border border-slate-200 bg-linear-to-b from-white to-slate-50 shadow-[0_10px_30px_-12px_rgba(15,23,42,0.18)] transition duration-300 hover:-translate-y-1 hover:shadow-[0_18px_45px_-12px_rgba(15,23,42,0.24)] hover:ring-2 hover:ring-yellow-400/70">
+                      <div className="overflow-hidden bg-linear-to-br from-slate-900 via-slate-800 to-slate-700">
+                        <img
+                          src={product.image}
+                          alt={product.name}
+                          className="h-72 w-full object-contain p-4 transition duration-500 group-hover:scale-105"
+                        />
+                      </div>
+                      <div className="space-y-4 p-5">
+                        <div className="flex items-start justify-between gap-3">
+                          <p className="rounded-full bg-slate-100 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.3em] text-slate-600">
                             {product.category}
                           </p>
-                          <span className="text-lg font-bold text-slate-900">${product.price.toLocaleString()}</span>
+                          <span className="text-base font-bold text-slate-900">${product.price.toLocaleString()}</span>
                         </div>
                         <div>
-                          <h2 className="text-2xl font-semibold text-slate-900">{product.name}</h2>
-                          <p className="mt-3 text-sm leading-6 text-slate-600">{product.description}</p>
+                          <h2 className="text-xl font-semibold text-slate-900">{product.name}</h2>
+                          <p className="mt-2 line-clamp-3 text-sm leading-6 text-slate-600">{product.description}</p>
                         </div>
                         <Link
                           to={`/products/${product.id}`}
-                          className="inline-flex w-full items-center justify-center rounded-full bg-yellow-400 px-5 py-3 text-sm font-semibold text-slate-900 transition hover:bg-yellow-300"
+                          className="inline-flex w-full items-center justify-center rounded-full bg-yellow-400 px-4 py-3 text-sm font-semibold text-slate-900 transition hover:bg-yellow-300"
                         >
                           View Details
                         </Link>

@@ -1,6 +1,7 @@
 // @vitest-environment jsdom
 
-import { beforeEach, describe, expect, it } from 'vitest';
+import { beforeEach, describe, expect, it, vi } from 'vitest';
+import products from './products';
 import {
   addProduct,
   deleteProduct,
@@ -18,7 +19,20 @@ describe('productsStore', () => {
   });
 
   it('returns the default inventory when storage is empty', () => {
-    expect(getProducts()).toHaveLength(8);
+    expect(getProducts()).toHaveLength(products.length);
+  });
+
+  it('includes newly added default products even when older inventory exists in storage', async () => {
+    localStorage.setItem('obolo-products', JSON.stringify([
+      { id: 'bmw-m3-g80', name: 'BMW M3 G80', image: '/images/BMW_M3_G80.png' },
+    ]));
+
+    vi.resetModules();
+    const { getProducts: getStoredProducts } = await import('./productsStore');
+    const storedProducts = getStoredProducts();
+
+    expect(storedProducts.some((product) => product.id === 'amg-e63s')).toBe(true);
+    expect(storedProducts.some((product) => product.id === 'bmw-m3-g80')).toBe(true);
   });
 
   it('adds a new product to the store', () => {
@@ -36,10 +50,10 @@ describe('productsStore', () => {
       },
     });
 
-    const products = getProducts();
-    expect(products).toHaveLength(9);
+    const inventory = getProducts();
+    expect(inventory).toHaveLength(products.length + 1);
     expect(created.id).toBeTruthy();
-    expect(products[0]).toMatchObject({ name: 'Porsche Taycan' });
+    expect(inventory[0]).toMatchObject({ name: 'Porsche Taycan' });
   });
 
   it('updates an existing product and keeps its id', () => {
@@ -57,6 +71,25 @@ describe('productsStore', () => {
 
     expect(removed).toBe(true);
     expect(products.some((product) => product.id === 'bmw-m3-g80')).toBe(false);
+  });
+
+  it('replaces legacy local image paths from storage with the hosted image URL', async () => {
+    localStorage.setItem('obolo-products', JSON.stringify([
+      {
+        id: 'bmw-m3-g80',
+        name: 'BMW M3 G80',
+        image: '/images/BMW_M3_G80.png',
+      },
+    ]));
+
+    vi.resetModules();
+    const { getProducts: getStoredProducts } = await import('./productsStore');
+
+    const restoredProducts = getStoredProducts();
+    const restoredBmw = restoredProducts.find((product) => product.id === 'bmw-m3-g80');
+    const expectedBmw = products.find((product) => product.id === 'bmw-m3-g80');
+
+    expect(restoredBmw?.image).toBe(expectedBmw?.image);
   });
 
   it('matches car names and related terms even when punctuation differs', () => {

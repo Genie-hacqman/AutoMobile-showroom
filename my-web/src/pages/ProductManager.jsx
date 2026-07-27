@@ -29,7 +29,7 @@ export default function ProductManager() {
   const [editingId, setEditingId] = useState(null);
   const [message, setMessage] = useState('');
 
-  const previewImage = form.image || '/images/placeholder.png';
+  const previewImage = form.image || '';
 
   const sortedProducts = useMemo(() => {
     return [...products].sort((a, b) => a.name.localeCompare(b.name));
@@ -83,7 +83,7 @@ export default function ProductManager() {
         brand: form.brand || 'Other',
         category: form.category,
         price: Number(form.price) || 0,
-        image: form.image || '/images/placeholder.png',
+        image: form.image || '',
         description: form.description,
         specs: {
           engine: form.specs.engine,
@@ -99,7 +99,7 @@ export default function ProductManager() {
         brand: form.brand || 'Other',
         category: form.category,
         price: Number(form.price) || 0,
-        image: form.image || '/images/placeholder.png',
+        image: form.image || '',
         description: form.description,
         specs: {
           engine: form.specs.engine,
