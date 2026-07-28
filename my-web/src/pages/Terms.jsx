@@ -1,4 +1,3 @@
-// File: src/pages/Terms.jsx — Static Terms & Conditions page for the site.
 export default function Terms() {
   return (
     <main className="min-h-screen bg-slate-50 py-16 text-slate-900">

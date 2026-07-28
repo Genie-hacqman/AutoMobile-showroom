@@ -1,18 +1,15 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 
-// This page gives visitors a simple way to get in touch while keeping the experience warm and polished.
 export default function Contact() {
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
   const [status, setStatus] = useState('idle');
 
-  // This updates the form state as the visitor types so the submission payload stays current.
   const handleChange = (event) => {
     const { name, value } = event.target;
     setFormData((current) => ({ ...current, [name]: value }));
   };
 
-  // This sends the contact form to the API endpoint and updates the page with a friendly status message.
   const handleSubmit = async (event) => {
     event.preventDefault();
     setStatus('pending');

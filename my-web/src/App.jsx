@@ -14,7 +14,6 @@ import OwnerGate from './components/dashboard/OwnerGate';
 import Home from './pages/Home';
 import NotFound from './pages/NotFound';
 
-// This is the main app shell that keeps the navigation visible and swaps the page content based on the URL.
 function App() {
   return (
     <>

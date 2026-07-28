@@ -1,4 +1,3 @@
-// File: src/pages/ProductManager.jsx — Owner dashboard page for creating, editing, and publishing vehicle listings.
 import { useMemo, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { addProduct, deleteProduct, getProducts, updateProduct } from '../data/productsStore';

@@ -2,7 +2,6 @@ import { useState } from "react";
 import { FaBars, FaShoppingCart, FaTimes } from "react-icons/fa";
 import NavLinks from "./NavLinks";
 
-// This mobile menu gives smaller screens a compact way to browse the site without crowding the layout.
 
 
 export default function MobileMenu({ searchTerm, setSearchTerm, onNavigateToProducts }) {

@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-// These video sources create a cinematic landing experience that feels a little like a showroom reel.
 
 
 const videos = [
@@ -10,14 +9,12 @@ const videos = [
   "https://ik.imagekit.io/genescreative/14228183-hd_1920_1080_60fps.mp4",
 ];
 
-// The hero section welcomes visitors with motion, bold copy, and clear calls to action.
 
 
 export default function Hero() {
   const [activeIndex, setActiveIndex] = useState(0);
   const navigate = useNavigate();
 
-  // This little loop rotates through the background videos so the hero feels alive instead of static.
 
 
   useEffect(() => {

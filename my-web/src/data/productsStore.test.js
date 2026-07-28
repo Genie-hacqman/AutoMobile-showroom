@@ -1,4 +1,3 @@
-// @vitest-environment jsdom
 
 import { beforeEach, describe, expect, it, vi } from 'vitest';
 import products from './products';
@@ -22,7 +21,7 @@ describe('productsStore', () => {
     expect(getProducts()).toHaveLength(products.length);
   });
 
-  it('includes newly added default products even when older inventory exists in storage', async () => {
+  it('includes existing inventory from storage alongside the defaults', async () => {
     localStorage.setItem('obolo-products', JSON.stringify([
       { id: 'bmw-m3-g80', name: 'BMW M3 G80', image: '/images/BMW_M3_G80.png' },
     ]));
@@ -37,23 +36,24 @@ describe('productsStore', () => {
 
   it('adds a new product to the store', () => {
     const created = addProduct({
-      name: 'Porsche Taycan',
-      category: 'Electric Sedan',
-      price: 108000,
-      image: '/images/porsche.png',
-      description: 'A sleek electric grand tourer with instant torque.',
+      name: 'Test Coupe',
+      category: 'Coupe',
+      price: 90000,
+      image: '/images/test-coupe.png',
+      description: 'A test coupe for inventory coverage.',
       specs: {
-        engine: 'Dual electric motors',
-        transmission: 'Single-speed auto',
+        engine: 'V6',
+        transmission: 'Automatic',
         mileage: 'N/A',
-        power: '402 hp',
+        power: '300 hp',
       },
     });
 
     const inventory = getProducts();
+
     expect(inventory).toHaveLength(products.length + 1);
     expect(created.id).toBeTruthy();
-    expect(inventory[0]).toMatchObject({ name: 'Porsche Taycan' });
+    expect(inventory[0]).toMatchObject({ name: 'Test Coupe' });
   });
 
   it('updates an existing product and keeps its id', () => {
@@ -67,10 +67,10 @@ describe('productsStore', () => {
 
   it('deletes a product from the store', () => {
     const removed = deleteProduct('bmw-m3-g80');
-    const products = getProducts();
+    const inventory = getProducts();
 
     expect(removed).toBe(true);
-    expect(products.some((product) => product.id === 'bmw-m3-g80')).toBe(false);
+    expect(inventory.some((product) => product.id === 'bmw-m3-g80')).toBe(false);
   });
 
   it('replaces legacy local image paths from storage with the hosted image URL', async () => {

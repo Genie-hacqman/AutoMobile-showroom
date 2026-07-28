@@ -1,4 +1,3 @@
-// Brand metadata with logo paths used by the landing page and product listings.
 
 
 export const brandLogos = {
@@ -13,7 +12,6 @@ export const brandLogos = {
   'Toyota': '/icons/Toyota.png',
 };
 
-// Return the matching logo path for a brand, or null if no asset exists.
 
 
 export function getBrandLogo(brandName) {

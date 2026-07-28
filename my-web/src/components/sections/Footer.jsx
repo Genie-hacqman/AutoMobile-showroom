@@ -1,7 +1,6 @@
 import { FaFacebookF, FaInstagram, FaLinkedinIn, FaTwitter } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
-// This footer closes the experience with helpful links, social channels, and a polished brand signature.
 
 
 export default function Footer() {

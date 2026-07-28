@@ -1,4 +1,3 @@
-// File: src/pages/OwnerLogin.jsx — Simple owner sign-in page (client-side demo auth).
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { signIn } from '../utils/ownerAuth';
