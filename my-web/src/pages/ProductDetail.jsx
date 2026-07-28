@@ -1,4 +1,3 @@
-// File: src/pages/ProductDetail.jsx — Detailed vehicle page showing specs and description.
 import { useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
 import { getProductById } from "../data/productsStore";

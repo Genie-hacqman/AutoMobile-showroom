@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
 
-// This gallery showcases a few signature vehicles in a way that feels like flipping through a curated showroom wall.
 
 const galleryItems = [
   {
@@ -21,7 +20,6 @@ const galleryItems = [
   },
 ];
 
-// This section gives visitors a polished snapshot of the collection and nudges them toward the full inventory.
 
 
 export default function Gallery() {

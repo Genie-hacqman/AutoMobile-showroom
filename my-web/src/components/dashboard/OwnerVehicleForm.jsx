@@ -1,4 +1,3 @@
-// File: src/components/dashboard/OwnerVehicleForm.jsx — Form for creating and editing vehicle listings in the dashboard.
 
 export default function OwnerVehicleForm({
   form,

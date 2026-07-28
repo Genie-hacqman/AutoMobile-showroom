@@ -1,4 +1,3 @@
-// File: src/pages/NotFound.jsx — 404 page shown when a route is not found.
 import { Link } from 'react-router-dom';
 
 export default function NotFound() {

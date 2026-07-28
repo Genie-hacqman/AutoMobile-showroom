@@ -2,8 +2,6 @@ import products from './products';
 
 const STORAGE_KEY = 'obolo-products';
 
-// Start from the built-in product list so the site always has a sensible default inventory.
-
 function normalizeSpecs(specs) {
   return {
     engine: specs?.engine || 'Not specified',
@@ -81,8 +79,6 @@ function normalizeStoredProducts(parsedProducts) {
   return mergedProducts;
 }
 
-// Load products from browser storage when available; otherwise fall back to the default list.
-
 function loadProducts() {
   if (typeof window === 'undefined') return defaultProducts;
 
@@ -108,13 +104,14 @@ function initializeProductState() {
 
 initializeProductState();
 
-// Save the current inventory back to local storage so changes survive a refresh.
-
 function persistProducts(nextProducts) {
   productState = nextProducts;
+
   if (typeof window !== 'undefined') {
     window.localStorage.setItem(STORAGE_KEY, JSON.stringify(nextProducts));
+    window.dispatchEvent(new CustomEvent('products-updated', { detail: nextProducts }));
   }
+
   return nextProducts;
 }
 
@@ -122,21 +119,13 @@ export function getProducts() {
   return productState;
 }
 
-// Search inventory by a user-entered term, normalizing punctuation and spacing so car names still match reliably.
-
-
 export function searchProducts(productsToSearch, searchTerm) {
-  const normalizedQuery = searchTerm.trim().toLowerCase().replace(/[^a-z0-9]+/g, ' ');
+  const normalizedQuery = String(searchTerm ?? '').trim().toLowerCase().replace(/[^a-z0-9]+/g, ' ');
 
   if (!normalizedQuery) return productsToSearch;
 
   return productsToSearch.filter((product) => {
-    const searchableText = [
-      product.name,
-      product.category,
-      product.description,
-      product.id,
-    ]
+    const searchableText = [product.name, product.category, product.description, product.id]
       .filter(Boolean)
       .join(' ')
       .toLowerCase()
@@ -146,20 +135,14 @@ export function searchProducts(productsToSearch, searchTerm) {
   });
 }
 
-// Reset the store back to the original inventory list.
-
-
 export function resetProducts() {
   persistProducts(defaultProducts.map((product) => ({ ...product })));
   return getProducts();
 }
 
-// Create a new listing and give it a stable id based on the name and current time.
-
-
 export function addProduct(productInput) {
   const created = {
-    id: `${productInput.name.toLowerCase().replace(/[^a-z0-9]+/g, '-')}-${Date.now()}`,
+    id: `${String(productInput.name).toLowerCase().replace(/[^a-z0-9]+/g, '-')}-${Date.now()}`,
     ...productInput,
     price: Number(productInput.price) || 0,
     specs: {
@@ -173,9 +156,6 @@ export function addProduct(productInput) {
   persistProducts([created, ...productState]);
   return created;
 }
-
-// Update an existing listing while preserving its id and keeping the spec fields intact.
-
 
 export function updateProduct(id, updates) {
   const nextProducts = productState.map((product) => {
@@ -197,9 +177,6 @@ export function updateProduct(id, updates) {
   return nextProducts.find((product) => product.id === id) || null;
 }
 
-// Remove a listing from the current in-memory state and storage.
-
-
 export function deleteProduct(id) {
   const removed = productState.some((product) => product.id === id);
   if (!removed) return false;
@@ -209,15 +186,9 @@ export function deleteProduct(id) {
   return true;
 }
 
-// Fetch a single product by id for the detail page.
-
-
 export function getProductById(id) {
   return productState.find((product) => product.id === id) || null;
 }
-
-// Extract the brand from a product's brand property.
-
 
 export function getProductBrand(product) {
   const explicitBrand = product?.brand?.trim();
@@ -229,12 +200,49 @@ export function getProductBrand(product) {
   if (normalizedName.includes('brabus')) return 'Mercedes-Benz';
 
   const knownBrands = [
-    'BMW', 'Mercedes-Benz', 'Mercedes', 'Toyota', 'Ford', 'Audi', 'Porsche', 'Tesla',
-    'Lexus', 'Nissan', 'Honda', 'Volkswagen', 'Changan', 'Chevrolet', 'Volvo',
-    'Jaguar', 'Land Rover', 'Range Rover', 'Mazda', 'Subaru', 'Hyundai', 'Kia',
-    'Mitsubishi', 'Jeep', 'Cadillac', 'Lincoln', 'Acura', 'Genesis', 'Mini', 'Alfa Romeo',
-    'Fiat', 'Maserati', 'Rolls-Royce', 'Bentley', 'McLaren', 'Ferrari', 'Lamborghini',
-    'Aston Martin', 'Bugatti', 'Pagani', 'GMC', 'Ram', 'Dodge',
+    'BMW',
+    'Mercedes-Benz',
+    'Mercedes',
+    'Toyota',
+    'Ford',
+    'Audi',
+    'Porsche',
+    'Tesla',
+    'Lexus',
+    'Nissan',
+    'Honda',
+    'Volkswagen',
+    'Changan',
+    'Chevrolet',
+    'Volvo',
+    'Jaguar',
+    'Land Rover',
+    'Range Rover',
+    'Mazda',
+    'Subaru',
+    'Hyundai',
+    'Kia',
+    'Mitsubishi',
+    'Jeep',
+    'Cadillac',
+    'Lincoln',
+    'Acura',
+    'Genesis',
+    'Mini',
+    'Alfa Romeo',
+    'Fiat',
+    'Maserati',
+    'Rolls-Royce',
+    'Bentley',
+    'McLaren',
+    'Ferrari',
+    'Lamborghini',
+    'Aston Martin',
+    'Bugatti',
+    'Pagani',
+    'GMC',
+    'Ram',
+    'Dodge',
   ];
 
   const matchedBrand = knownBrands.find((brand) => normalizedName.includes(brand.toLowerCase()));

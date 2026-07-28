@@ -1,6 +1,5 @@
 import { brandLogos } from "../../data/brands";
 
-// Convert the brand logo map into a list so the marquee can render each logo card.
 
 
 const brands = Object.entries(brandLogos);

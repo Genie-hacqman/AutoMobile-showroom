@@ -1,4 +1,3 @@
-// File: src/components/dashboard/OwnerMetrics.jsx — Small metric cards shown on the owner dashboard.
 import { formatCurrency } from '../../utils/dashboardUtils';
 
 export default function OwnerMetrics({ stats }) {

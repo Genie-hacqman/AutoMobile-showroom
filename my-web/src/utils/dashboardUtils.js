@@ -1,4 +1,3 @@
-// File: src/utils/dashboardUtils.js — Small helpers used by the owner dashboard and its tests.
 
 
 export function formatCurrency(value) {

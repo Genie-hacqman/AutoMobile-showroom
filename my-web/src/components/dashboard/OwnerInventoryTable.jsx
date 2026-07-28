@@ -1,4 +1,3 @@
-// File: src/components/dashboard/OwnerInventoryTable.jsx — Table-like list showing current inventory for the owner.
 export default function OwnerInventoryTable({ products, editingId, onEdit, onDelete }) {
   return (
     <div className="overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm">

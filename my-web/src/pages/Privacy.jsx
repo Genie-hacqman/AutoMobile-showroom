@@ -1,4 +1,3 @@
-// File: src/pages/Privacy.jsx — Site privacy policy and data use explanation.
 export default function Privacy() {
   return (
     <main className="min-h-screen bg-slate-50 py-16 text-slate-900">

@@ -1,4 +1,3 @@
-// File: src/components/dashboard/OwnerDashboardHeader.jsx — Hero header used on the owner dashboard.
 
 
 export default function OwnerDashboardHeader({ title, subtitle, badge }) {

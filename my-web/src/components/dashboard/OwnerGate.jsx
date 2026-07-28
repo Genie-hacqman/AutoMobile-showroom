@@ -1,4 +1,3 @@
-// File: src/components/dashboard/OwnerGate.jsx — Route guard that redirects non-owners to the owner sign-in page.
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { isOwner } from '../../utils/ownerAuth';

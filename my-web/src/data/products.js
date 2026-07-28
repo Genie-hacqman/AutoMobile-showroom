@@ -1,4 +1,3 @@
-// This array holds the inventory items that power the products pages and detail views.
 
 const products = [
   {

@@ -1,6 +1,5 @@
 import { Link } from 'react-router-dom';
 
-// This page tells the story of the brand and gives visitors a warm introduction to the experience behind the cars.
 
 export default function About() {
   return (

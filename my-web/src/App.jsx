@@ -14,7 +14,6 @@ import OwnerGate from './components/dashboard/OwnerGate';
 import Home from './pages/Home';
 import NotFound from './pages/NotFound';
 
-// This is the main app shell that keeps the navigation visible and swaps the page content based on the URL.
 function App() {
   return (
     <>
@@ -22,6 +21,7 @@ function App() {
       <Navbar />
 
       {/* These routes map each path to the right page component, almost like a digital map for the site. */}
+      
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/landing" element={<Landing />} />

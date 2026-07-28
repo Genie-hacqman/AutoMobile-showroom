@@ -1,5 +1,4 @@
 
-// Customer feedback cards shown on the landing page.
 
 
 const testimonials = [
@@ -26,7 +25,6 @@ const testimonials = [
   },
 ];
 
-// Main service highlights displayed beside the intro content.
 
 
 const productHighlights = [

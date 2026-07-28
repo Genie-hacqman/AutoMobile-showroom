@@ -1,6 +1,3 @@
-// Simple client-side owner auth helpers.
-// NOTE: This is intentionally lightweight and runs entirely in the browser.
-// It is suitable for demos and local admin flows but NOT for production security.
 
 const OWNER_KEY = 'obolo-owner';
 const OWNER_PASSWORD = 'obolo-secret'; // replace during deployment with a safer flow

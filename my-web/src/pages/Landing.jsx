@@ -1,4 +1,3 @@
-// File: src/pages/Landing.jsx — Marketing landing page composed of sections (hero, products, gallery).
 import Hero from "../components/sections/Hero";
 import BrandStrip from "../components/sections/BrandStrip";
 import LandingProducts from "../components/sections/LandingProduct";
