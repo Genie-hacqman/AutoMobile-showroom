@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { FaSearch, FaShoppingCart } from 'react-icons/fa';
 import NavLinks from '../ui/NavLinks';
@@ -21,7 +21,11 @@ export default function Navbar() {
   const location = useLocation();
   const navigate = useNavigate();
   const [searchTerm, setSearchTerm] = useState(() => new URLSearchParams(location.search).get('search') || '');
-  const urlSearch = new URLSearchParams(location.search).get('search') || '';
+
+  useEffect(() => {
+    const currentSearch = new URLSearchParams(location.search).get('search') || '';
+    setSearchTerm(currentSearch);
+  }, [location.search]);
 
   const handleSearchSubmit = () => {
     const params = new URLSearchParams();
@@ -66,7 +70,7 @@ export default function Navbar() {
                 handleSearchSubmit();
               }}
             >
-              <SearchField value={searchTerm || urlSearch} onValueChange={setSearchTerm} />
+              <SearchField value={searchTerm} onValueChange={setSearchTerm} />
               <button
                 type="submit"
                 aria-label="Search inventory"
