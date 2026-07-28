@@ -22,6 +22,7 @@ function App() {
       <Navbar />
 
       {/* These routes map each path to the right page component, almost like a digital map for the site. */}
+      
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/landing" element={<Landing />} />
