@@ -1,16 +1,12 @@
 import { useEffect, useMemo, useState } from 'react';
-import { FaSearch } from 'react-icons/fa';
-import { Link, useSearchParams } from 'react-router-dom';
-import { getProductBrand, getProducts, searchProducts } from '../data/productsStore';
+import { Link } from 'react-router-dom';
+import { getProductBrand, getProducts } from '../data/productsStore';
 
 export default function Products() {
-  const [searchParams, setSearchParams] = useSearchParams();
   const [category, setCategory] = useState('All');
   const [brand, setBrand] = useState('All');
   const [sortOrder, setSortOrder] = useState('asc');
-  const [draftQuery, setDraftQuery] = useState(searchParams.get('search') ?? '');
   const [products, setProducts] = useState(() => getProducts());
-  const query = searchParams.get('search') ?? '';
 
   useEffect(() => {
     const syncProducts = () => setProducts(getProducts());
@@ -33,30 +29,9 @@ export default function Products() {
   const filteredProducts = useMemo(() => {
     const byCategory = category === 'All' ? products : products.filter((product) => product.category === category);
     const byBrand = brand === 'All' ? byCategory : byCategory.filter((product) => getProductBrand(product) === brand);
-    const searchedProducts = searchProducts(byBrand, query);
 
-    return [...searchedProducts].sort((a, b) => (sortOrder === 'asc' ? a.price - b.price : b.price - a.price));
-  }, [brand, category, products, query, sortOrder]);
-
-  const handleSearchChange = (event) => {
-    setDraftQuery(event.target.value);
-  };
-
-  const handleSearchSubmit = (event) => {
-    event.preventDefault();
-    const trimmedQuery = draftQuery.trim();
-
-    setDraftQuery(trimmedQuery);
-    setSearchParams((current) => {
-      const params = new URLSearchParams(current);
-      if (trimmedQuery) {
-        params.set('search', trimmedQuery);
-      } else {
-        params.delete('search');
-      }
-      return params;
-    });
-  };
+    return [...byBrand].sort((a, b) => (sortOrder === 'asc' ? a.price - b.price : b.price - a.price));
+  }, [brand, category, products, sortOrder]);
 
   return (
     <main className="bg-slate-50 min-h-screen py-16 text-slate-900">
@@ -71,26 +46,6 @@ export default function Products() {
               </p>
             </div>
 
-            <div className="flex flex-col gap-4 sm:flex-row sm:items-center">
-              <form onSubmit={handleSearchSubmit} className="flex w-full max-w-md items-center rounded-full border border-slate-200 bg-white px-4 py-2 shadow-sm">
-                <input
-                  id="product-search"
-                  name="search"
-                  type="search"
-                  value={draftQuery}
-                  onChange={handleSearchChange}
-                  placeholder="Search inventory"
-                  className="w-full bg-transparent text-sm outline-none placeholder:text-slate-400"
-                />
-                <button
-                  type="submit"
-                  aria-label="Search inventory"
-                  className="ml-2 rounded-full p-2 text-slate-700 transition hover:bg-slate-100 hover:text-slate-900"
-                >
-                  <FaSearch className="h-4 w-4" />
-                </button>
-              </form>
-            </div>
             <div className="mt-6 flex flex-wrap items-center gap-3">
               {brands.map((brandName) => (
                 <button
@@ -137,14 +92,6 @@ export default function Products() {
             </div>
           </div>
         </div>
-
-        {query && (
-          <div className="mb-6 rounded-3xl bg-white p-5 shadow-sm">
-            <p className="text-sm text-slate-600">
-              Searching for <span className="font-semibold text-slate-900">“{query}”</span>. Showing {filteredProducts.length} result{filteredProducts.length === 1 ? '' : 's'}.
-            </p>
-          </div>
-        )}
 
         {filteredProducts.length === 0 ? (
           <div className="rounded-3xl bg-white p-10 text-center shadow-sm">
