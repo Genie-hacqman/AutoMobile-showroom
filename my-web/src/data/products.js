@@ -8,7 +8,15 @@ const products = [
     category: "Luxury SUV",
     image: "https://ik.imagekit.io/genescreative/2021_Mercedes-AMG_GLE_53.png",
     description: "A refined performance SUV with handcrafted AMG power and premium interior comfort.",
+    specs: {
+      engine: "3.0L Twin-Turbo",
+      transmission: "9-Speed Automatic",
+      mileage: "12,000 km",
+      power: "375 hp",
+    }
   },
+
+  
   {
     id: "bmw-m3-g80",
     name: "BMW M3 G80",
@@ -17,7 +25,15 @@ const products = [
     category: "Sports Sedan",
     image: "https://ik.imagekit.io/genescreative/BMW_M3_G80.png",
     description: "Track-capable performance with sharp handling and aggressive BMW styling.",
+    specs: {
+      engine: "3.0L Twin-Turbo",
+      transmission: "9-Speed Automatic",
+      mileage: "15,000 km",
+      power: "425 hp",
+    }
   },
+
+
   {
     id: "bmw-m4-2024",
     name: "BMW M4 2024",
@@ -26,7 +42,16 @@ const products = [
     category: "Sports Coupe",
     image: "https://ik.imagekit.io/genescreative/BMW_M4_2024.png",
     description: "Modern coupe performance with precision chassis tuning and luxury details.",
+    specs: {
+      engine: "3.0L Twin-Turbo",
+      transmission: "8-Speed Automatic",
+      mileage: "10,000 km",
+      power: "425 hp",
+    }
   },
+
+
+
   {
     id: "lamborghini-urus-performante",
     name: "Lamborghini Urus Performante 2024",
@@ -35,7 +60,15 @@ const products = [
     category: "Super SUV",
     image: "https://ik.imagekit.io/genescreative/LAMBORGHINI_URUS_PERFORMANTE_2024.png",
     description: "The ultimate performance SUV built for speed, luxury, and dramatic style.",
+    specs: {
+      engine: "4.0L V8",
+      transmission: "8-Speed Automatic",
+      mileage: "5,000 km",
+      power: "650 hp",
+    }
   },
+
+
   {
     id: "dodge-challenger",
     name: "Dodge Challenger R/T",
@@ -44,7 +77,15 @@ const products = [
     category: "Muscle Car",
     image: "https://ik.imagekit.io/genescreative/dodge_challenger.png",
     description: "Classic American muscle with modern performance and bold presence.",
+    specs: {
+      engine: "5.7L V8",
+      transmission: "8-Speed Automatic",
+      mileage: "20,000 km",
+      power: "375 hp",
+    }
   },
+
+
   {
     id: "ford-mustang",
     name: "Ford Mustang GT",
@@ -53,7 +94,16 @@ const products = [
     category: "Sports Coupe",
     image: "https://ik.imagekit.io/genescreative/mustang.png",
     description: "Iconic straight-six performance and everyday driving appeal.",
+    specs: {
+      engine: "5.0L V8",
+      transmission: "8-Speed Automatic",
+      mileage: "18,000 km",
+      power: "400 hp",
+    }
   },
+
+
+  
   {
     id: "toyota-land-cruiser",
     name: "Toyota Land Cruiser",
@@ -62,7 +112,15 @@ const products = [
     category: "Luxury SUV",
     image: "https://ik.imagekit.io/genescreative/TOYOTA_LAND_CRUISER_2025.png",
     description: "Premium durability and refined off-road capability for long-distance adventure.",
+    specs: {
+      engine: "5.7L V8",
+      transmission: "8-Speed Automatic",
+      mileage: "10,000 km",
+      power: "375 hp",
+    }
   },
+
+  
   {
     id: "jetour-dashing",
     name: "Jetour Dashing",
@@ -71,7 +129,15 @@ const products = [
     category: "Premium Crossover",
     image: "https://ik.imagekit.io/genescreative/Jetour_Dashing.png",
     description: "A modern crossover with comfort, technology, and a sophisticated design.",
+    specs: {
+      engine: "2.0L Turbo",
+      transmission: "8-Speed Automatic",
+      mileage: "15,000 km",
+      power: "250 hp",
+    }
   },
+
+
   {
     id: "hyundai-sonata-2023",
     name: "2023 Hyundai Sonata",
@@ -80,7 +146,16 @@ const products = [
     category: "Mid-Size Sedan",
     image: "https://ik.imagekit.io/genescreative/2023_Hyundai_Sonata.png",
     description: "Modern sedan with sleek design, advanced tech features, and excellent fuel efficiency.",
+    specs: {
+      engine: "2.0L Turbo",
+      transmission: "8-Speed Automatic",
+      mileage: "15,000 km",
+      power: "250 hp",
+    }
   },
+
+
+
   {
     id: "changan-cs55",
     name: "Changan CS55",
@@ -89,7 +164,15 @@ const products = [
     category: "Compact SUV",
     image: "https://ik.imagekit.io/genescreative/CHANGAN_CS55.png",
     description: "Affordable compact SUV with reliable performance and practical interior space.",
+    specs: {
+      engine: "1.5L Turbo",
+      transmission: "8-Speed Automatic",
+      mileage: "20,000 km",
+      power: "170 hp",
+    }
   },
+
+
   {
     id: "changan-x5-plus",
     name: "Changan X5 Plus",
@@ -98,7 +181,16 @@ const products = [
     category: "Mid-Size SUV",
     image: "https://ik.imagekit.io/genescreative/Changan_X5_Plus.png",
     description: "Stylish mid-size SUV offering comfort, reliability, and excellent value.",
+    specs: {
+      engine: "2.0L Turbo",
+      transmission: "8-Speed Automatic",
+      mileage: "15,000 km",
+      power: "250 hp",
+    }
   },
+
+
+  
   {
     id: "dodge-challenger-srt",
     name: "Dodge Challenger SRT",
@@ -107,7 +199,15 @@ const products = [
     category: "Muscle Car",
     image: "https://ik.imagekit.io/genescreative/Dogde-challenger%20srt.png",
     description: "High-performance muscle car with aggressive styling and supercharged engine power.",
+    specs: {
+      engine: "5.7L V8",
+      transmission: "8-Speed Automatic",
+      mileage: "10,000 km",
+      power: "375 hp",
+    }
   },
+
+
   {
     id: "ford-ram",
     name: "Ford RAM",
@@ -116,7 +216,15 @@ const products = [
     category: "Full-Size Truck",
     image: "https://ik.imagekit.io/genescreative/Ford%20RAM.png",
     description: "Powerful pickup truck with towing capability, rugged design, and spacious cabin.",
+    specs: {
+      engine: "5.7L V8",
+      transmission: "8-Speed Automatic",
+      mileage: "10,000 km",
+      power: "375 hp",
+    }
   },
+
+
   {
     id: "hyundai-sonata-2016",
     name: "Hyundai Sonata 2016",
@@ -125,7 +233,15 @@ const products = [
     category: "Mid-Size Sedan",
     image: "https://ik.imagekit.io/genescreative/HYUNDAI_SONATA_2016.png",
     description: "Reliable used sedan with proven durability and comfortable ride quality.",
+    specs: {
+      engine: "2.0L Turbo",
+      transmission: "8-Speed Automatic",
+      mileage: "20,000 km",
+      power: "250 hp",
+    }
   },
+
+
   {
     id: "hyundai-santa-fe",
     name: "Hyundai Santa Fe",
@@ -134,7 +250,15 @@ const products = [
     category: "Premium SUV",
     image: "https://ik.imagekit.io/genescreative/Hyundai_Santa_Fe.png",
     description: "Three-row SUV with advanced safety features and spacious family-friendly interior.",
+    specs: {
+      engine: "2.0L Turbo",
+      transmission: "8-Speed Automatic",
+      mileage: "15,000 km",
+      power: "250 hp",
+    }
   },
+
+
   {
     id: "mercedes-g-wagon",
     name: "Mercedes-Benz G-Wagon",
@@ -143,7 +267,15 @@ const products = [
     category: "Luxury SUV",
     image: "https://ik.imagekit.io/genescreative/Mercedes%20benz%20G-wagon.png",
     description: "Iconic luxury SUV with legendary off-road capability and premium craftsmanship.",
+    specs: {
+      engine: "5.5L V8",
+      transmission: "8-Speed Automatic",
+      mileage: "10,000 km",
+      power: "571 hp",
+    }
   },
+
+
   {
     id: "mercedes-cle-53-amg",
     name: "Mercedes-Benz CLE 53 AMG",
@@ -152,7 +284,15 @@ const products = [
     category: "Luxury Coupe",
     image: "https://ik.imagekit.io/genescreative/Mercedes-Benz_CLE_53_AMG.png",
     description: "Elegant performance coupe combining luxury, technology, and AMG performance.",
+    specs: {
+      engine: "3.0L Twin-Turbo",
+      transmission: "9-Speed Automatic",
+      mileage: "12,000 km",
+      power: "375 hp",
+    }
   },
+
+
   {
     id: "ford-ranger-raptor",
     name: "Ford Ranger Raptor",
@@ -161,7 +301,15 @@ const products = [
     category: "Performance Truck",
     image: "https://ik.imagekit.io/genescreative/Ranger_Raptor.png",
     description: "Aggressive performance pickup with off-road prowess and enhanced suspension.",
+    specs: {
+      engine: "2.7L Turbo",
+      transmission: "8-Speed Automatic",
+      mileage: "10,000 km",
+      power: "310 hp",
+    }
   },
+
+
   {
     id: "toyota-camry",
     name: "Toyota Camry",
@@ -170,7 +318,15 @@ const products = [
     category: "Mid-Size Sedan",
     image: "https://ik.imagekit.io/genescreative/Toyota_Camry.png",
     description: "Best-selling sedan known for reliability, comfort, and long-term value.",
+    specs: {
+      engine: "2.5L Inline-4",
+      transmission: "8-Speed Automatic",
+      mileage: "15,000 km",
+      power: "203 hp",
+    }
   },
+
+
   {
     id: "hyundai-tucson",
     name: "Hyundai Tucson",
@@ -179,7 +335,16 @@ const products = [
     category: "Compact SUV",
     image: "https://ik.imagekit.io/genescreative/hyundai%20Tucson.png",
     description: "Practical compact SUV with modern features and excellent warranty coverage.",
+    specs: {
+      engine: "2.0L Turbo",
+      transmission: "8-Speed Automatic",
+      mileage: "15,000 km",
+      power: "250 hp",
+    }
   },
+
+
+  
   {
     id: "toyota-corolla",
     name: "Toyota Corolla",
@@ -188,7 +353,15 @@ const products = [
     category: "Compact Sedan",
     image: "https://ik.imagekit.io/genescreative/toyota%20corolla.png",
     description: "Trusted compact sedan with legendary reliability and efficient performance.",
+    specs: {
+      engine: "1.8L Inline-4",
+      transmission: "8-Speed Automatic",
+      mileage: "15,000 km",
+      power: "139 hp",
+    }
   },
+
+  
   {
     id: "toyota-hilux",
     name: "Toyota Hilux",
@@ -197,7 +370,15 @@ const products = [
     category: "Mid-Size Truck",
     image: "https://ik.imagekit.io/genescreative/toyota%20hulix.png",
     description: "Rugged pickup truck famous for durability and excellent load-carrying capacity.",
+    specs: {
+      engine: "2.0L Turbo",
+      transmission: "8-Speed Automatic",
+      mileage: "15,000 km",
+      power: "250 hp",
+    }
   },
+
+  
   {
     id: "changan-hunter",
     name: "Changan_Hunter.png",
@@ -206,7 +387,15 @@ const products = [
     category: "SUV",
     image: "https://ik.imagekit.io/genescreative/Changan_Hunter.png",
     description: "Premium Changan model featuring standout styling and modern driving appeal.",
+    specs: {
+      engine: "2.0L Turbo",
+      transmission: "8-Speed Automatic",
+      mileage: "15,000 km",
+      power: "250 hp",
+    }
   },
+
+  
   {
     id: "ford-handiri",
     name: "FORD HANDIRI.png",
@@ -215,7 +404,15 @@ const products = [
     category: "Pickup Truck",
     image: "https://ik.imagekit.io/genescreative/FORD%20HANDIRI.png",
     description: "Premium Ford model featuring standout styling and modern driving appeal.",
+    specs: {
+      engine: "2.0L Turbo",
+      transmission: "8-Speed Automatic",
+      mileage: "15,000 km",
+      power: "250 hp",
+    }
   },
+
+
   {
     id: "bmw-series-7",
     name: "BMW SERIES 7.png",
@@ -224,7 +421,15 @@ const products = [
     category: "Luxury Car",
     image: "https://ik.imagekit.io/genescreative/BMW%20SERIES%207.png",
     description: "Premium BMW model featuring standout styling and modern driving appeal.",
+    specs: {
+      engine: "5.7L V8",
+      transmission: "8-Speed Automatic",
+      mileage: "10,000 km",
+      power: "375 hp",
+    }
   },
+
+
   {
     id: "changan-uni-v",
     name: "Changan_Uni-V.png",
@@ -233,7 +438,15 @@ const products = [
     category: "Luxury Car",
     image: "https://ik.imagekit.io/genescreative/Changan_Uni-V.png",
     description: "Premium Changan model featuring standout styling and modern driving appeal.",
+    specs: {
+      engine: "2.0L Turbo",
+      transmission: "8-Speed Automatic",
+      mileage: "15,000 km",
+      power: "250 hp",
+    }
   },
+
+
   {
     id: "rare-dodges",
     name: "rare_dodges.png",
@@ -242,7 +455,15 @@ const products = [
     category: "Luxury Car",
     image: "https://ik.imagekit.io/genescreative/rare_dodges.png",
     description: "Premium Other model featuring standout styling and modern driving appeal.",
+    specs: {
+      engine: "2.0L Turbo",
+      transmission: "8-Speed Automatic",
+      mileage: "15,000 km",
+      power: "250 hp",
+    }
   },
+
+
   {
     id: "toyota-supra-mk5",
     name: "TOYOTA Supra_mk5.png",
@@ -251,7 +472,15 @@ const products = [
     category: "Sports Car",
     image: "https://ik.imagekit.io/genescreative/TOYOTA%20Supra_mk5.png",
     description: "Premium Toyota model featuring standout styling and modern driving appeal.",
+    specs: {
+      engine: "2.0L Turbo",
+      transmission: "8-Speed Automatic",
+      mileage: "15,000 km",
+      power: "250 hp",
+    }
   },
+
+
   {
     id: "dodge-viper-acr",
     name: "Dodge_Viper_ACR.png",
@@ -260,7 +489,15 @@ const products = [
     category: "Sports Car",
     image: "https://ik.imagekit.io/genescreative/Dodge_Viper_ACR.png",
     description: "Premium Dodge model featuring standout styling and modern driving appeal.",
+    specs: {
+      engine: "5.7L V8",
+      transmission: "8-Speed Automatic",
+      mileage: "10,000 km",
+      power: "375 hp",
+    }
   },
+
+
   {
     id: "bmw-m8",
     name: "BMW_M8.png",
@@ -269,7 +506,15 @@ const products = [
     category: "Luxury Sedan",
     image: "https://ik.imagekit.io/genescreative/BMW_M8.png",
     description: "Premium BMW model featuring standout styling and modern driving appeal.",
+    specs: {
+      engine: "3.0L Twin-Turbo",
+      transmission: "9-Speed Automatic",
+      mileage: "12,000 km",
+      power: "375 hp",
+    }
   },
+
+
   {
     id: "dodge-hellcat",
     name: "DODGE hellcat.png",
@@ -278,7 +523,15 @@ const products = [
     category: "Luxury Car",
     image: "https://ik.imagekit.io/genescreative/DODGE%20hellcat.png",
     description: "Premium Dodge model featuring standout styling and modern driving appeal.",
+    specs: {
+      engine: "5.7L V8",
+      transmission: "8-Speed Automatic",
+      mileage: "10,000 km",
+      power: "375 hp",
+    }
   },
+
+
   {
     id: "hyundai-palisade",
     name: "Hyundai_Palisade.png",
@@ -287,7 +540,15 @@ const products = [
     category: "SUV",
     image: "https://ik.imagekit.io/genescreative/Hyundai_Palisade.png",
     description: "Premium Hyundai model featuring standout styling and modern driving appeal.",
+    specs: {
+      engine: "2.0L Turbo",
+      transmission: "8-Speed Automatic",
+      mileage: "15,000 km",
+      power: "250 hp",
+    }
   },
+
+
   {
     id: "ford-focus",
     name: "Ford_Focus.png",
@@ -296,7 +557,15 @@ const products = [
     category: "Compact Car",
     image: "https://ik.imagekit.io/genescreative/Ford_Focus.png",
     description: "Premium Ford model featuring standout styling and modern driving appeal.",
+    specs: {
+      engine: "1.8L Inline-4",
+      transmission: "8-Speed Automatic",
+      mileage: "15,000 km",
+      power: "139 hp",
+    }
   },
+
+
   {
     id: "bmw-m3-e36",
     name: "BMW_M3_E36.png",
@@ -305,7 +574,15 @@ const products = [
     category: "Luxury Sedan",
     image: "https://ik.imagekit.io/genescreative/BMW_M3_E36.png",
     description: "Premium BMW model featuring standout styling and modern driving appeal.",
+    specs: {
+      engine: "1.8L Inline-4",
+      transmission: "8-Speed Automatic",
+      mileage: "15,000 km",
+      power: "139 hp",
+    }
   },
+
+
   {
     id: "toyota-rav4",
     name: "Toyota_RAV4.png",
@@ -314,7 +591,15 @@ const products = [
     category: "SUV",
     image: "https://ik.imagekit.io/genescreative/Toyota_RAV4.png",
     description: "Premium Toyota model featuring standout styling and modern driving appeal.",
+    specs: {
+      engine: "2.0L Turbo",
+      transmission: "8-Speed Automatic",
+      mileage: "15,000 km",
+      power: "250 hp",
+    }
   },
+
+
   {
     id: "bmw-x6-m",
     name: "BMW X6 M.png",
@@ -323,7 +608,15 @@ const products = [
     category: "Luxury Sedan",
     image: "https://ik.imagekit.io/genescreative/BMW%20X6%20M.png",
     description: "Premium BMW model featuring standout styling and modern driving appeal.",
+    specs: {
+      engine: "3.0L Twin-Turbo",
+      transmission: "9-Speed Automatic",
+      mileage: "12,000 km",
+      power: "375 hp",
+    }
   },
+
+
   {
     id: "ford-f-150",
     name: "Ford_F-150.png",
@@ -332,7 +625,15 @@ const products = [
     category: "Pickup Truck",
     image: "https://ik.imagekit.io/genescreative/Ford_F-150.png",
     description: "Premium Ford model featuring standout styling and modern driving appeal.",
+    specs: {
+      engine: "2.0L Turbo",
+      transmission: "8-Speed Automatic",
+      mileage: "15,000 km",
+      power: "250 hp",
+    }
   },
+
+
   {
     id: "brabus",
     name: "BRABUS.png",
@@ -341,7 +642,15 @@ const products = [
     category: "Luxury Sedan",
     image: "https://ik.imagekit.io/genescreative/BRABUS.png",
     description: "Premium Brabus model featuring standout styling and modern driving appeal.",
+    specs: {
+      engine: "5.7L V8",
+      transmission: "8-Speed Automatic",
+      mileage: "10,000 km",
+      power: "375 hp",
+    }
   },
+
+
   {
     id: "changan-nevo-q07",
     name: "Changan_Nevo_Q07.png",
@@ -350,7 +659,15 @@ const products = [
     category: "Luxury Car",
     image: "https://ik.imagekit.io/genescreative/Changan_Nevo_Q07.png",
     description: "Premium Changan model featuring standout styling and modern driving appeal.",
+    specs: {
+      engine: "2.0L Turbo",
+      transmission: "8-Speed Automatic",
+      mileage: "15,000 km",
+      power: "250 hp",
+    }
   },
+
+
   {
     id: "ford-shelby",
     name: "FORD SHELBY.png",
@@ -359,7 +676,15 @@ const products = [
     category: "Luxury Car",
     image: "https://ik.imagekit.io/genescreative/FORD%20SHELBY.png",
     description: "Premium Ford model featuring standout styling and modern driving appeal.",
+    specs: {
+      engine: "2.0L Turbo",
+      transmission: "8-Speed Automatic",
+      mileage: "15,000 km",
+      power: "250 hp",
+    }
   },
+
+
   {
     id: "2020-changan-hunter",
     name: "2020 Changan Hunter.jpeg",
@@ -368,7 +693,15 @@ const products = [
     category: "SUV",
     image: "https://ik.imagekit.io/genescreative/2020%20Changan%20Hunter.jpeg",
     description: "Premium Changan model featuring standout styling and modern driving appeal.",
+    specs: {
+      engine: "2.0L Turbo",
+      transmission: "8-Speed Automatic",
+      mileage: "15,000 km",
+      power: "250 hp",
+    }
   },
+
+
   {
     id: "changan-alsvin",
     name: "Changan Alsvin.jpeg",
@@ -377,7 +710,15 @@ const products = [
     category: "Compact Car",
     image: "https://ik.imagekit.io/genescreative/Changan%20Alsvin.jpeg",
     description: "Premium Changan model featuring standout styling and modern driving appeal.",
+    specs: {
+      engine: "2.0L Turbo",
+      transmission: "8-Speed Automatic",
+      mileage: "15,000 km",
+      power: "250 hp",
+    }
   },
+
+
   {
     id: "amg-e63s",
     name: "AMG_E63s.png",
@@ -386,7 +727,15 @@ const products = [
     category: "Luxury Sedan",
     image: "https://ik.imagekit.io/genescreative/AMG_E63s.png",
     description: "Premium Mercedes-Benz model featuring standout styling and modern driving appeal.",
+    specs: {
+      engine: "3.0L Twin-Turbo",
+      transmission: "9-Speed Automatic",
+      mileage: "12,000 km",
+      power: "375 hp",
+    }
   },
+
+  
 ];
 
 const uniqueProducts = Array.from(
