@@ -49,10 +49,6 @@ export default function LandingProducts() {
   return (
     <section className="bg-white py-16 text-slate-900">
 
-
-      {/* Main layout container for the landing product section */}
-
-
       <div className="mx-auto max-w-7xl px-5 sm:px-8 lg:px-16">
         <div className="grid gap-10 lg:grid-cols-[0.95fr_1.05fr] lg:items-start">
           <div className="space-y-6">
@@ -62,9 +58,6 @@ export default function LandingProducts() {
             <p className="max-w-2xl text-lg leading-8 text-slate-600">
               Obolo Motors connects international buyers with premium U.S. vehicles. We source the finest sports cars, luxury SUVs, and performance sedans, inspecting and shipping each model with care so your purchase arrives ready to drive.
             </p>
-
-            {/* Highlight cards for key selling points */}
-
 
             <div className="grid gap-4 sm:grid-cols-2">
               {productHighlights.map((item) => (
@@ -78,8 +71,6 @@ export default function LandingProducts() {
           </div>
 
           <div className="space-y-6">
-            {/* Render each testimonial as a customer story card */}
-
             
             {testimonials.map((testimonial, index) => (
               <div

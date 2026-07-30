@@ -86,10 +86,8 @@ export default function Footer() {
           </div>
         </div>
       </div>
-
-      {/* This bottom bar quietly closes the footer with a polished brand message and a helpful disclaimer. */}
-
       
+            
       <div className="border-t border-slate-800 px-5 py-6 text-center text-sm text-slate-500 sm:px-8 lg:px-16">
         <p>
           © {new Date().getFullYear()} Obolo Motors. All rights reserved. Crafted for global car buyers with transparency, trust, and premium delivery.

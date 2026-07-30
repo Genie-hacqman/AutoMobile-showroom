@@ -1,5 +1,3 @@
-
-
 export function formatCurrency(value) {
   const amount = Number(value) || 0;
 

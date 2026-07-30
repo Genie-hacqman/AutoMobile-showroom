@@ -1,5 +1,6 @@
 import { formatCurrency } from '../../utils/dashboardUtils';
 
+
 export default function OwnerMetrics({ stats }) {
   const cards = [
     {
