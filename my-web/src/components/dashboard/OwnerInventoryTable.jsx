@@ -14,8 +14,7 @@ export default function OwnerInventoryTable({ products, editingId, onEdit, onDel
           products.map((product) => (
             <div
               key={product.id}
-              className="grid grid-cols-1 gap-4 px-5 py-4 items-center md:grid-cols-3 lg:grid-cols-4"
-            >
+              className="grid grid-cols-1 gap-4 px-5 py-4 items-center md:grid-cols-3 lg:grid-cols-4">
               <div className="flex items-start gap-4 md:col-span-2 lg:col-span-3">
                 <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-slate-100 text-sm font-semibold text-slate-700">
                   {product.category?.slice(0, 2).toUpperCase() || 'VE'}

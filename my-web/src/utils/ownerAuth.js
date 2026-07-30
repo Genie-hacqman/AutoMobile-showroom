@@ -1,6 +1,5 @@
-
 const OWNER_KEY = 'obolo-owner';
-const OWNER_PASSWORD = 'obolo-secret'; // replace during deployment with a safer flow
+const OWNER_PASSWORD = 'obolo-secret';
 
 export function isOwner() {
     if (typeof window === 'undefined') return false;

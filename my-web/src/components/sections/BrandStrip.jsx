@@ -1,7 +1,5 @@
 import { brandLogos } from "../../data/brands";
 
-
-
 const brands = Object.entries(brandLogos);
 
 export default function BrandStrip() {
