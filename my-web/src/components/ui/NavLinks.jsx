@@ -1,6 +1,4 @@
 import { Link } from "react-router-dom";
-
-
 export default function NavLinks({ to, link, label, onClick }) {
   return (
     <Link
