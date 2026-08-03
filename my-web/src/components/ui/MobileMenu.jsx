@@ -1,11 +1,13 @@
 import { useState } from "react";
 import { FaBars, FaTimes } from "react-icons/fa";
 import NavLinks from "./NavLinks";
+import { useAuth } from "../../context/authContext";
 
 
 
 export default function MobileMenu({ searchTerm, setSearchTerm, onNavigateToProducts }) {
   const [menuOpen, setMenuOpen] = useState(false);
+  const { isAuthenticated, user } = useAuth();
 
   const toggleMobileMenu = () => setMenuOpen((current) => !current);
   const closeMobileMenu = () => setMenuOpen(false);
@@ -38,6 +40,11 @@ export default function MobileMenu({ searchTerm, setSearchTerm, onNavigateToProd
             <NavLinks to="/products" label="Inventory" onClick={closeMobileMenu} />
             <NavLinks to="/about" label="Heritage" onClick={closeMobileMenu} />
             <NavLinks to="/contact" label="Support" onClick={closeMobileMenu} />
+            {isAuthenticated ? (
+              <NavLinks to="/profile" label={user?.first_name ? `${user.first_name}'s account` : 'My account'} onClick={closeMobileMenu} />
+            ) : (
+              <NavLinks to="/login" label="Sign in" onClick={closeMobileMenu} />
+            )}
           </div>
 
           <div className="flex flex-col gap-3">

@@ -1,8 +1,9 @@
 import { useEffect, useState } from 'react';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { FaSearch } from 'react-icons/fa';
 import NavLinks from '../ui/NavLinks';
 import MobileMenu from '../ui/MobileMenu';
+import { useAuth } from '../../context/authContext';
 
 function SearchField({ value, onValueChange }) {
   return (
@@ -20,6 +21,7 @@ function SearchField({ value, onValueChange }) {
 export default function Navbar() {
   const location = useLocation();
   const navigate = useNavigate();
+  const { isAuthenticated, user } = useAuth();
   const [searchTerm, setSearchTerm] = useState(() => new URLSearchParams(location.search).get('search') || '');
 
   useEffect(() => {
@@ -87,6 +89,22 @@ export default function Navbar() {
             >
               My Garage
             </button>
+
+            {isAuthenticated ? (
+              <Link
+                to="/profile"
+                className="rounded border border-slate-200 px-4 py-2 text-slate-700 transition hover:bg-slate-100"
+              >
+                {user?.first_name || 'Account'}
+              </Link>
+            ) : (
+              <Link
+                to="/login"
+                className="rounded border border-slate-200 px-4 py-2 text-slate-700 transition hover:bg-slate-100"
+              >
+                Sign in
+              </Link>
+            )}
           </div>
 
           <MobileMenu
