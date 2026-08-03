@@ -1,5 +1,3 @@
-
-
 export const brandLogos = {
   'BMW': '/icons/%20BMW.png',
   'Changan': '/icons/changan.png',
