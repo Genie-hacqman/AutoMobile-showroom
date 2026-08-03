@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
-import { FaSearch, FaShoppingCart } from 'react-icons/fa';
+import { FaSearch } from 'react-icons/fa';
 import NavLinks from '../ui/NavLinks';
 import MobileMenu from '../ui/MobileMenu';
 
@@ -87,7 +87,6 @@ export default function Navbar() {
             >
               My Garage
             </button>
-            <FaShoppingCart className="h-5 w-5 text-slate-900 sm:h-6 sm:w-6" />
           </div>
 
           <MobileMenu
