@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 
 export default function Contact() {
-  const [formData, setFormData] = useState({ name: '', email: '', message: '' });
+  const [formData, setFormData] = useState({ name: '', message: '' });
   const [status, setStatus] = useState('idle');
 
   const handleChange = (event) => {
@@ -10,29 +10,20 @@ export default function Contact() {
     setFormData((current) => ({ ...current, [name]: value }));
   };
 
-  const handleSubmit = async (event) => {
+  const handleSubmit = (event) => {
     event.preventDefault();
     setStatus('pending');
 
-    const endpoint = import.meta.env.VITE_CONTACT_API_URL || '/api/contact';
+    const message = formData.message
+      ? `${formData.name ? `Name: ${formData.name}\n` : ''}Message: ${formData.message}`
+      : 'Hello, I would like to enquire about a vehicle.';
 
-    try {
-      const response = await fetch(endpoint, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(formData),
-      });
+    const encodedMessage = encodeURIComponent(message);
+    const whatsappUrl = `https://wa.me/233549701424?text=${encodedMessage}`;
 
-      if (!response.ok) {
-        throw new Error('Request failed');
-      }
-
-      setStatus('submitted');
-      setFormData({ name: '', email: '', message: '' });
-    } catch (error) {
-      setStatus('error');
-      console.error('Contact submission failed:', error);
-    }
+    window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
+    setStatus('submitted');
+    setFormData({ name: '', message: '' });
   };
 
   return (
@@ -43,17 +34,17 @@ export default function Contact() {
             <p className="text-sm uppercase tracking-[0.35em] text-yellow-500">Get in touch</p>
             <h1 className="mt-4 text-4xl font-bold sm:text-5xl">Start your premium purchase journey.</h1>
             <p className="mt-6 text-base leading-8 text-slate-600 sm:text-lg">
-              We are here to answer your questions, arrange viewings, and help you choose the perfect vehicle. Reach out and a specialist will respond quickly.
+              We are here to answer your questions, arrange viewings, and help you choose the perfect vehicle. Contact us only through WhatsApp and a specialist will respond quickly.
             </p>
 
             <div className="mt-10 space-y-6">
               <div>
-                <p className="text-sm font-semibold uppercase tracking-[0.35em] text-slate-500">Email</p>
-                <p className="mt-2 text-lg text-slate-900">sales@obolomotors.com</p>
-              </div>
-              <div>
-                <p className="text-sm font-semibold uppercase tracking-[0.35em] text-slate-500">Phone</p>
-                <p className="mt-2 text-lg text-slate-900">+233 208 9249 35</p>
+                <p className="text-sm font-semibold uppercase tracking-[0.35em] text-slate-500">WhatsApp</p>
+                <p className="mt-2 text-lg text-slate-900">
+                  <a href="https://wa.me/233549701424" className="underline transition hover:text-yellow-600" target="_blank" rel="noreferrer">
+                    +233 3 5497 01424
+                  </a>
+                </p>
               </div>
               <div>
                 <p className="text-sm font-semibold uppercase tracking-[0.35em] text-slate-500">Location</p>
@@ -79,17 +70,6 @@ export default function Contact() {
                   onChange={handleChange}
                   type="text"
                   placeholder="Your name"
-                  className="mt-3 w-full rounded-3xl border border-slate-200 bg-slate-50 px-5 py-4 text-slate-900 outline-none transition focus:border-yellow-400 focus:ring-4 focus:ring-yellow-100"
-                />
-              </div>
-              <div>
-                <label className="block text-sm font-semibold text-slate-700">Email</label>
-                <input
-                  name="email"
-                  value={formData.email}
-                  onChange={handleChange}
-                  type="email"
-                  placeholder="you@email.com"
                   className="mt-3 w-full rounded-3xl border border-slate-200 bg-slate-50 px-5 py-4 text-slate-900 outline-none transition focus:border-yellow-400 focus:ring-4 focus:ring-yellow-100"
                 />
               </div>
