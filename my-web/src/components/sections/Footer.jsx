@@ -10,10 +10,6 @@ export default function Footer() {
         <div className="grid gap-8 lg:grid-cols-[1.2fr_0.8fr] lg:items-start">
           <div className="space-y-3">
 
-
-            {/* This intro helps visitors understand what the brand stands for. */}
-
-
             <h2 className="text-2xl font-bold">Obolo Motors</h2>
             <p className="max-w-xl text-sm leading-6 text-slate-400">
               Premium car sourcing and international delivery made simple. Connect with us on social media for updates, featured models, and exclusive offers.
@@ -22,9 +18,7 @@ export default function Footer() {
 
           <div className="grid gap-8 sm:grid-cols-2">
             <div>
-              {/* Quick links keep key legal and contact pages easy to reach. */}
-
-
+    
               <p className="text-sm uppercase tracking-[0.35em] text-slate-400">Quick links</p>
               <div className="mt-4 flex flex-col gap-3 text-sm text-slate-300">
                 <Link to="/privacy" className="transition hover:text-white">
@@ -40,7 +34,6 @@ export default function Footer() {
             </div>
 
             <div>
-              {/* Social links give visitors a few simple ways to keep in touch with the brand. */}
 
 
               <p className="text-sm uppercase tracking-[0.35em] text-slate-400">Follow us</p>

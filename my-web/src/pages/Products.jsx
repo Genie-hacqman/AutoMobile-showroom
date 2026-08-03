@@ -1,8 +1,9 @@
 import { useEffect, useMemo, useState } from 'react';
-import { Link } from 'react-router-dom';
-import { getProductBrand, getProducts } from '../data/productsStore';
+import { Link, useLocation } from 'react-router-dom';
+import { getProductBrand, getProducts, searchProducts } from '../data/productsStore';
 
 export default function Products() {
+  const location = useLocation();
   const [category, setCategory] = useState('All');
   const [brand, setBrand] = useState('All');
   const [sortOrder, setSortOrder] = useState('asc');
@@ -26,12 +27,15 @@ export default function Products() {
     ...rawBrands.filter((name) => !featuredBrands.includes(name)).sort((a, b) => a.localeCompare(b)),
   ];
 
+  const searchQuery = useMemo(() => new URLSearchParams(location.search).get('search') || '', [location.search]);
+
   const filteredProducts = useMemo(() => {
     const byCategory = category === 'All' ? products : products.filter((product) => product.category === category);
     const byBrand = brand === 'All' ? byCategory : byCategory.filter((product) => getProductBrand(product) === brand);
+    const bySearch = searchProducts(byBrand, searchQuery);
 
-    return [...byBrand].sort((a, b) => (sortOrder === 'asc' ? a.price - b.price : b.price - a.price));
-  }, [brand, category, products, sortOrder]);
+    return [...bySearch].sort((a, b) => (sortOrder === 'asc' ? a.price - b.price : b.price - a.price));
+  }, [brand, category, products, searchQuery, sortOrder]);
 
   return (
     <main className="bg-slate-50 min-h-screen py-16 text-slate-900">

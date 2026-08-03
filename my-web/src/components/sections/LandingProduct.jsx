@@ -1,6 +1,3 @@
-
-
-
 const testimonials = [
   {
     id: "testimonial-1",
