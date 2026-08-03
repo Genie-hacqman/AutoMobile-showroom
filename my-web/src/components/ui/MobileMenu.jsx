@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { FaBars, FaShoppingCart, FaTimes } from "react-icons/fa";
+import { FaBars, FaTimes } from "react-icons/fa";
 import NavLinks from "./NavLinks";
 
 
@@ -61,7 +61,6 @@ export default function MobileMenu({ searchTerm, setSearchTerm, onNavigateToProd
             >
               My Garage
             </button>
-            <FaShoppingCart className="h-5 w-5 text-slate-900 sm:h-6 sm:w-6" />
           </div>
         </div>
       </div>
